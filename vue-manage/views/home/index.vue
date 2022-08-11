@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import { getData } from '../../api/data'
+
 export default {
     name: 'home',
     components: {},
@@ -73,45 +75,8 @@ export default {
                 monthBuy: '本月购买',
                 totalBuy: '总共购买'
             },
-            // 表格数据
-            tableData: [
-                {
-                    name: 'oppo',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                },
-                {
-                    name: 'vivo',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                },
-                {
-                    name: '苹果',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                },
-                {
-                    name: '小米',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                },
-                {
-                    name: '三星',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                },
-                {
-                    name: '魅族',
-                    todayBuy: 100,
-                    monthBuy: 300,
-                    totalBuy: 800
-                }
-            ],
+            // 表格数据mock
+            tableData: [],
             // 订单数据
             countData: [
                 {
@@ -158,7 +123,18 @@ export default {
     computed: {},
     methods: {},
     created() { },
-    mounted() { }
+    mounted() {
+        getData().then(res => {
+            const {code,data} = res.data
+            if(code === 20000){
+                this.tableData = data.tableData
+            }
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
 };
 </script>
 <style lang="less" scoped>
