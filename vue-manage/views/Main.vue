@@ -4,9 +4,10 @@
             <Common-aside></Common-aside>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
+            <el-header>
+                <Common-header></Common-header>
+            </el-header>
             <el-main>
-                <h3>888</h3>
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -14,10 +15,14 @@
 </template>
 
 <script>
+import CommonHeader from '@/components/CommonHeader.vue';
 import CommonAside from '@/components/CommonAside.vue';
 export default {
     name: 'Main',
-    components: {CommonAside},
+    components: {
+        CommonAside,
+        CommonHeader
+    },
     props: {},
     data() {
         return {
@@ -34,7 +39,8 @@ export default {
 .el-header {
     background-color: #333;
 }
-.el-main{
+
+.el-main {
     padding-top: 0;
 }
 </style>
