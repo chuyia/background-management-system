@@ -6,6 +6,7 @@ const routes = [
     {
         path: '/',
         name: 'Main',
+        redirect:'/home',
         component:() => import('../../views/Main'),
         children:[
             {
