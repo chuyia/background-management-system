@@ -38,7 +38,7 @@ export default {
                     url: 'MallManage/MallManage'
                 },
                 {
-                    path: '/user',
+                    path: "/user",
                     name: 'user',
                     label: '用户管理',
                     icon: 'user',

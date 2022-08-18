@@ -20,7 +20,7 @@ class HttpRequest {
         // 添加请求拦截器
         axios.interceptors.request.use(function (config) {
             console.log('--------请求成功---------')
-            console.log(response)
+            console.log(config)
             return config;
         }, function (error) {
             console.log('--------请求失败---------')

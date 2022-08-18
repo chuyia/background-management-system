@@ -11,7 +11,7 @@ import '../api/mock'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 
-Vue.prototype.http = http
+Vue.prototype.$http = http
 new Vue({
   store,
   router,
